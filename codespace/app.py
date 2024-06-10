@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from simpleMenuBot import menuBotChain
+from menuAgent import menuRecomment
 
 app = Flask(__name__)
 age = 25
@@ -10,14 +10,7 @@ weather = "맑음"
 def ask():
     query = request.json
     question = query['question']
-    res = menuBotChain.invoke(
-        {
-            "question": question,
-            "age": age,
-            "gender": gender,
-            "weather": weather
-        }
-    )
+    res = menuRecomment(question)
     return jsonify(res)
 
 

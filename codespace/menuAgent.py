@@ -30,13 +30,10 @@ model = ChatOpenAI(model='gpt-3.5-turbo', temperature=0.1, api_key=OPENAI_API_KE
 # prototype : check code
 menuBotChain = prompt | model | StrOutputParser()
 
-
-# Test Code
-if __name__ == '__main__':
-    ans = menuBotChain.invoke(
-        {"question": "점심 메뉴 추천해줘",
-        "age": 25,
-        "gender": "남성",
-        "weather": "맑음"
-        })
-    print(ans)
+def menuRecomment(question):
+    return menuBotChain.invoke(
+            {"question": question,
+            "age": 25,
+            "gender": "남성",
+            "weather": "맑음"
+            })
