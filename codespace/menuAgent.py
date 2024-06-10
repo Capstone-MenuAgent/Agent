@@ -5,6 +5,8 @@ from langchain_core.output_parsers import StrOutputParser
 import os
 from dotenv import load_dotenv
 
+from getWeather import getWeatherFore
+
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
@@ -35,5 +37,5 @@ def menuRecomment(question):
             {"question": question,
             "age": 25,
             "gender": "남성",
-            "weather": "맑음"
+            "weather": getWeatherFore()
             })
