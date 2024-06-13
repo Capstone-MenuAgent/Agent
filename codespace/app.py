@@ -6,11 +6,14 @@ age = 25
 gender = "남성"
 weather = "맑음"
 
-@app.route('/ask', methods=['POST'])
-def ask():
-    query = request.json
-    question = query['question']
-    res = menuRecomment(question)
+@app.route('/question/', methods=['GET'])
+def question():
+    paramsDict = request.args.to_dict()
+    query = paramsDict['query']
+    age = paramsDict['age']
+    gender = paramsDict['gender']
+    loc = paramsDict['loc']
+    res = menuRecomment(query, age, gender, loc)
     return jsonify(res)
 
 
