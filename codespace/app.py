@@ -1,10 +1,9 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, redirect
 from menuAgent import menuRecomment
 
 app = Flask(__name__)
 age = 25
 gender = "남성"
-weather = "맑음"
 
 @app.route('/question/', methods=['GET'])
 def question():
@@ -13,8 +12,11 @@ def question():
     age = paramsDict['age']
     gender = paramsDict['gender']
     loc = paramsDict['loc']
+    
     res = menuRecomment(query, age, gender, loc)
-    return jsonify(res)
+    url = f"http://127.0.0.1:8080/agent/answer?ans={res}"
+    #jsonify(res)
+    return redirect(url)
 
 
 if __name__ == '__main__':
