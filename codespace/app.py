@@ -2,8 +2,6 @@ from flask import Flask, request, redirect
 from menuAgent import menuRecomment
 
 app = Flask(__name__)
-age = 25
-gender = "남성"
 
 @app.route('/question/', methods=['GET'])
 def question():
