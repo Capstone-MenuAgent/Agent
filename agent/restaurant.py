@@ -1,9 +1,7 @@
-import json
 
-def getRestaurant(loc='한국교통대학교 충주캠퍼스'):
+def getRestaurant(loc):
     # 네이버 지도를 활용하여 해당 지역의 음식 크롤링
 
-    ''' Test Data
     restaurantList = [
         {
             "name": "권짬뽕",
@@ -27,9 +25,5 @@ def getRestaurant(loc='한국교통대학교 충주캠퍼스'):
             ]
         }
     ]
-    '''
-    path = f'./codespace/restaurants/{loc}.json'
-    with open(path, 'r', encoding='utf-8') as f:
-        restaurantList = json.load(f)
-    
+
     return restaurantList
