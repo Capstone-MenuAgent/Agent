@@ -15,8 +15,7 @@ def question():
     
     res = menuRecomment(query, age, gender, loc)
     url = f"http://127.0.0.1:8080/agent/answer?ans={res}"
-    return url
-
+    return redirect(url)
 
 if __name__ == '__main__':
     app.run()
