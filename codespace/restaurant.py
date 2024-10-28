@@ -1,7 +1,13 @@
 import json
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+JSONS_PATH = os.getenv("JSONS_PATH")
+
 def getRestaurant(loc='한국교통대학교 충주캠퍼스'):
-    path = f'./codespace/restaurants/{loc}.json'
+    path = f'{JSONS_PATH}/{loc}.json'
     with open(path, 'r', encoding='utf-8') as f:
         restaurantList = json.load(f)
 

@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, request, redirect, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from menuAgent import menuRecomment
 
@@ -39,4 +39,4 @@ def question():
         return jsonify({"status": "failed", "error": response.status_code}), response.status_code
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
