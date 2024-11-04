@@ -58,5 +58,5 @@ def getWeatherFore():
             weather[time].update({'기온': value})
         elif cat == 'SKY':
             weather[time].update({'하늘': skyCode(value)})
-
-    return weather
+    
+    return str(weather).replace('{', '[').replace('}', ']')
