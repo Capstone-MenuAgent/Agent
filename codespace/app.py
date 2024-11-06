@@ -1,7 +1,6 @@
-import requests
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from recommentAgent import menuRecomment
+from recommendAgnet import MenuAgent
 
 app = Flask(__name__)
 CORS(app)
@@ -14,10 +13,10 @@ def questionTest():
     gender = paramsDict['gender']
     age = paramsDict['age']
     
-    ans = menuRecomment(query, loc, gender, age)
-    print(ans)
+    menuAgent = MenuAgent()
 
-    #return 
+    ans = menuAgent.getMenuRecommend(query, loc, gender, age)
+
     return jsonify(ans)
 
 
