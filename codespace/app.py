@@ -5,7 +5,8 @@ from recommendAgnet import MenuAgent
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/agent/question', methods=['GET'])
+# /agent로 리버스 프록시됨
+@app.route('/question', methods=['GET'])
 def questionTest():
     paramsDict = request.args.to_dict()
     query = paramsDict['query']
@@ -21,4 +22,4 @@ def questionTest():
 
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    app.run(port=5000)
